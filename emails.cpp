@@ -10,13 +10,13 @@ int main() {
 
     regex email_pattern(R"(\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b)");
 
-    sregex_iterator it(text.begin() text.end(), email_pattern);
+    sregex_iterator it(text.begin(), text.end(), email_pattern);
     sregex_iterator end;
 
     cout << "Found emails:" << endl;
     while (it != end) {
         smatch match = *it;
         cout << match.str() << endl;
-        +it;
+        ++it;
     }
 }
